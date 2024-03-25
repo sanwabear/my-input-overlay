@@ -1,0 +1,139 @@
+{
+    "default_width": 200,
+    "default_height": 100,
+    "space_h": 3,
+    "space_v": 3,
+    "flags": 0,
+    "overlay_width": 532,
+    "overlay_height": 182,
+    "elements": [
+        {
+            "type": 1,
+            "pos": [
+                165,
+                84
+            ],
+            "id": "a",
+            "z_level": 0,
+            "mapping": [
+                0,
+                0,
+                94,
+                94
+            ],
+            "code": 30
+        },
+        {
+            "type": 1,
+            "pos": [
+                230,
+                8
+            ],
+            "id": "s",
+            "z_level": 0,
+            "mapping": [
+                97,
+                0,
+                94,
+                94
+            ],
+            "code": 31
+        },
+        {
+            "type": 1,
+            "pos": [
+                330,
+                0
+            ],
+            "id": "q",
+            "z_level": 0,
+            "mapping": [
+                194,
+                0,
+                94,
+                94
+            ],
+            "code": 16
+        },
+        {
+            "type": 1,
+            "pos": [
+                430,
+                0
+            ],
+            "id": "w",
+            "z_level": 0,
+            "mapping": [
+                291,
+                0,
+                94,
+                94
+            ],
+            "code": 17
+        },
+        {
+            "type": 1,
+            "pos": [
+                60,
+                0
+            ],
+            "id": "r",
+            "z_level": 0,
+            "mapping": [
+                410,
+                0,
+                70,
+                70
+            ],
+            "code": 19
+        },
+        {
+            "type": 1,
+            "pos": [
+                60,
+                115
+            ],
+            "id": "f",
+            "z_level": 0,
+            "mapping": [
+                480,
+                0,
+                70,
+                70
+            ],
+            "code": 33
+        },
+        {
+            "type": 1,
+            "pos": [
+                110,
+                60
+            ],
+            "id": "g",
+            "z_level": 0,
+            "mapping": [
+                550,
+                0,
+                70,
+                70
+            ],
+            "code": 34
+        },
+        {
+            "type": 1,
+            "pos": [
+                0,
+                60
+            ],
+            "id": "d",
+            "z_level": 0,
+            "mapping": [
+                620,
+                0,
+                70,
+                70
+            ],
+            "code": 32
+        }
+    ]
+}

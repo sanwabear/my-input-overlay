@@ -1,0 +1,139 @@
+{
+    "default_width": 200,
+    "default_height": 100,
+    "space_h": 3,
+    "space_v": 3,
+    "flags": 0,
+    "overlay_width": 532,
+    "overlay_height": 182,
+    "elements": [
+        {
+            "type": 1,
+            "pos": [
+                165,
+                84
+            ],
+            "id": "lctrl",
+            "z_level": 0,
+            "mapping": [
+                0,
+                0,
+                94,
+                94
+            ],
+            "code": 29
+        },
+        {
+            "type": 1,
+            "pos": [
+                230,
+                8
+            ],
+            "id": "lalt",
+            "z_level": 0,
+            "mapping": [
+                97,
+                0,
+                94,
+                94
+            ],
+            "code": 56
+        },
+        {
+            "type": 1,
+            "pos": [
+                330,
+                0
+            ],
+            "id": "space",
+            "z_level": 0,
+            "mapping": [
+                194,
+                0,
+                94,
+                94
+            ],
+            "code": 57
+        },
+        {
+            "type": 1,
+            "pos": [
+                430,
+                0
+            ],
+            "id": "lshift",
+            "z_level": 0,
+            "mapping": [
+                291,
+                0,
+                94,
+                94
+            ],
+            "code": 42
+        },
+        {
+            "type": 1,
+            "pos": [
+                60,
+                0
+            ],
+            "id": "cursor up",
+            "z_level": 0,
+            "mapping": [
+                410,
+                0,
+                70,
+                70
+            ],
+            "code": 57416
+        },
+        {
+            "type": 1,
+            "pos": [
+                60,
+                115
+            ],
+            "id": "cursor down",
+            "z_level": 0,
+            "mapping": [
+                480,
+                0,
+                70,
+                70
+            ],
+            "code": 57424
+        },
+        {
+            "type": 1,
+            "pos": [
+                110,
+                60
+            ],
+            "id": "cursor right",
+            "z_level": 0,
+            "mapping": [
+                550,
+                0,
+                70,
+                70
+            ],
+            "code": 57421
+        },
+        {
+            "type": 1,
+            "pos": [
+                0,
+                60
+            ],
+            "id": "cursor left",
+            "z_level": 0,
+            "mapping": [
+                620,
+                0,
+                70,
+                70
+            ],
+            "code": 57419
+        }
+    ]
+}

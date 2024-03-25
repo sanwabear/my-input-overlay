@@ -1,0 +1,108 @@
+  /* Zero out default values */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    height: 100%;
+    position: relative;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    color: white;
+
+    overflow: hidden;
+  }
+
+  body.bottom-align {
+    position: absolute;
+    bottom: 0;
+  }
+
+  /* #region History List */
+
+  div#history {
+    list-style-type: none;
+  }
+
+  /* Animation for hide timeout */
+  p.key-combination.hidden {
+    opacity: 0;
+
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    transition-duration: 1s;
+  }
+
+  * + p.key-combination {
+    /* Vertical distance between combinations */
+    margin-top: 0.0em;
+  }
+
+  p.key-combination > * {
+    /* Centralize keys and elements in them */
+    vertical-align: middle;
+  }
+
+  p.key-combination > .separator {
+    display: inline-block;
+
+    /* Spacing on sides of separator */
+    margin-left: 0.0em;
+    margin-right: 0.0em;
+  }
+
+  span.key, span.repeat {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  span.key {
+    display: inline-flex;
+    border-radius: 0.25em;
+    /* Override text height, otherwise it uses more vertical space and
+       keys with text in them are higher than ones with just icons. */
+    line-height: 0.8em;
+
+    padding: 0.1em;
+    white-space: nowrap;
+  }
+
+  span.repeat {
+    display: inline-flex;
+    margin-left: 0.1em;
+    border-radius: 1em;
+    padding: 0.3em 0.6em;
+
+    font-size: 0.7em;
+  }
+
+  /* #endregion */
+
+  /* #region Icons */
+
+  #icons-container {
+    display: none;
+  }
+
+  .icon-sm {
+    width: 1em;
+    height: 1em;
+
+    display: block;
+    margin: auto;
+  }
+
+  span.key div {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+
+  * + .icon-sm, .icon-sm + * {
+    /* Space before icons or elements following icons */
+    margin-left: 0.0em;
+  }
+
+  /* #endregion */
