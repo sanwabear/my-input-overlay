@@ -1,0 +1,17 @@
+<!DOCTYPE StreamControl>
+<items>
+ <timestamp>1713002408</timestamp>
+ <buttonLayout>line</buttonLayout>
+ <debug>0</debug>
+ <delayFrames>2</delayFrames>
+ <hist>1</hist>
+ <historyMax>22</historyMax>
+ <historyTimeout>30000</historyTimeout>
+ <historyTopAlign>1</historyTopAlign>
+ <input>1</input>
+ <inputDevice1p>0</inputDevice1p>
+ <inputDevice2p>1</inputDevice2p>
+ <inputType>k2</inputType>
+ <opacity>90</opacity>
+ <port>16899</port>
+</items>

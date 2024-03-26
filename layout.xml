@@ -1,0 +1,44 @@
+<!DOCTYPE StreamControlLayout>
+<layout width="440" height="330">
+    <label                         x="10"  y="10" width="200" height="22">Delay(frames)</label>
+    <spinBox  id="delayFrames"     x="100" y="10" width="45"  height="22" maximum="999"/>
+    <label                         x="165" y="10" width="200" height="22">Opacity(%)</label>
+    <spinBox  id="opacity"         x="235" y="10" width="45"  height="22" maximum="100"/>
+    <label                         x="300" y="10" width="200" height="22">Websocket</label>
+    <spinBox  id="port"            x="365" y="10" width="60"  height="22" maximum="65535"/>
+
+    <label                         x="105" y="35" width="430" height="22">───────────────────────────</label>
+    <checkBox id="hist"            x="10"  y="35" width="440" height="22">Show History</checkBox>
+    <label                         x="30"  y="60" width="200" height="22">Max Lines</label>
+    <spinBox id="historyMax"       x="100" y="60" width="40"  height="22" maximum="99"/>
+    <label                         x="165" y="60" width="200" height="22">Timeout(msec)</label>
+    <spinBox id="historyTimeout"   x="255" y="60" width="60"  height="22" maximum="99999"/>
+    <checkBox id="historyTopAlign" x="340" y="60" width="200" height="22">Top Align</checkBox>
+
+    <label                         x="95"  y="85" width="430" height="22">────────────────────────────</label>
+    <checkBox id="input"           x="10"  y="85" width="200" height="22">Show Input</checkBox>
+    <label                         x="30" y="110" width="200" height="22">Layout</label>
+    <radioGroup id="buttonLayout">
+        <radioButton               x="100" y="110" width="100" height="22" value="line">Line</radioButton>
+        <radioButton               x="180" y="110" width="100" height="22" value="box">Box</radioButton>
+        <radioButton               x="260" y="110" width="100" height="22" value="samurai">Samurai</radioButton>
+        <radioButton               x="340" y="110" width="100" height="22" value="six">6-Button</radioButton>
+    </radioGroup>
+
+    <label                         x="10"  y="140"  width="430" height="22">Input Device ─────────────────────────────</label>
+    <checkBox id="debug"           x="30"  y="165"  width="200" height="22">Display Keycode</checkBox>
+
+    <label                         x="180" y="190"  width="200" height="22">: {1Stick + 4Buttons} x2</label>
+    <label                         x="180" y="215"  width="200" height="22">: {1Stick + 4Buttons} x2</label>
+    <label                         x="180" y="240"  width="200" height="22">: {1Stick + 6Buttons} x2</label>
+    <radioGroup id="inputType">
+        <radioButton               x="30"  y="190"  width="400" height="22" value="k1">Neo Geo TO KEY (artax)                                  </radioButton>
+        <radioButton               x="30"  y="215"  width="400" height="22" value="k2">GP2040-CE x1pc                                          </radioButton>
+        <radioButton               x="30"  y="240"  width="400" height="22" value="k3">GP2040-CE x2pcs                                         </radioButton>
+    </radioGroup>
+    <label                         x="330" y="220"  width="200" height="22">Device ID</label>
+    <label                         x="320" y="240"  width="200" height="22">1P</label>
+    <spinBox  id="inputDevice1p"   x="340" y="240"  width="35"  height="22" maximum="9"/>
+    <label                         x="320" y="260"  width="200" height="22">2P</label>
+    <spinBox  id="inputDevice2p"   x="340" y="260"  width="35"  height="22" maximum="9"/>
+</layout>

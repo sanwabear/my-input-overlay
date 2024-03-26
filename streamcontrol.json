@@ -1,0 +1,16 @@
+{
+    "buttonLayout": "line",
+    "debug": "0",
+    "delayFrames": "2",
+    "hist": "1",
+    "historyMax": "22",
+    "historyTimeout": "30000",
+    "historyTopAlign": "1",
+    "input": "1",
+    "inputDevice1p": "0",
+    "inputDevice2p": "1",
+    "inputType": "k2",
+    "opacity": "90",
+    "port": "16899",
+    "timestamp": "1713002408"
+}
