@@ -1,8 +1,8 @@
 <!DOCTYPE StreamControl>
 <items>
- <timestamp>1713007234</timestamp>
+ <timestamp>1713037280</timestamp>
  <buttonLayout>box</buttonLayout>
- <debug>1</debug>
+ <debug>0</debug>
  <delayFrames>2</delayFrames>
  <hist>1</hist>
  <historyMax>22</historyMax>
