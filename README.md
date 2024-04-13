@@ -94,7 +94,7 @@ Neo Geo TO KEY、GP2040-CE x 1pc、GP2040-CE x 2pcsの3つのモードをサポ�
 それぞれのキーアサインは以下の通りです。
 
 |  JAMMA     | [Neo Geo TO KEY](#neo-geo-to-key) | [GP2040-CE x 1pc](#gp2040-ce-x-1pc) | [GP2040-CE x 2pcs](#gp2040-ce-x-2pcs) |
-| ---------- | -------------- | --------------- | ---------------- |
+| :--------: | :------------: | :-------------: | :--------------: |
 | 1P UP      | ARROW UP       | UP              | DEVICE #1 UP     |
 | 1P DOWN    | ARROW DOWN     | DOWN            | DEVICE #1 DOWN   |
 | 1P LEFT    | ARROW LEFT     | LEFT            | DEVICE #1 LEFT   |
@@ -135,6 +135,22 @@ Neo Geo TO KEYの駆動にDB15からの5Vを利用する場合はUSBコネクタ
 デバイスIDを区別するため設定で対応するIDを選択します。  
 デフォルト設定はそれぞれ 1プレイヤー = 0、2プレイヤー = 1 としています。  
 ゲームコントローラーとして認識されるものであればGP2040-CE以外のボードでもかまいません。
+
+### GP2040-CEの設定
+
+アナログ入力をハンドルできなかったのでD-Padのみをサポートします。
+
+| Settings            |                    |
+| :-----------------: | :----------------: |
+| Input Mode          | XInput             |
+| D-Pad Mode          | D-Pad              |
+| SOCD Cleaning Mode  | Off                |
+| Forced Setup Mode   | Disable Input Mode |
+
+| Boot Input Modes    |                    |
+| :-----------------: | :----------------: |
+| All                 | No Mode Selected   |
+
 
 ## StreamControlからの設定
 

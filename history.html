@@ -5,7 +5,7 @@
 <!-- By: https://github.com/christiankyle-ching/ -->
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset='utf-8' />
   <title>input-history Windows</title>
   <style>
     html {
@@ -526,13 +526,12 @@
       height: 100%;
       outline: dashed 1px black;
       position: absolute;
-      text-align: center;
     }
 
     .debugBox {
-      width: 50%;
-      height: 50%;
-      background-color: gray;
+      width: 1300px;
+      height: 500px;
+      background-color: #404040FD;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -547,141 +546,162 @@
     }
 
     .debugText {
-      font-size: 80px;
+      font-size: 40px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
     }
+
+    /* https://stackoverflow.com/questions/4810841/pretty-print-json-using-javascript */
+    .jsonString {
+      color: green;
+    }
+
+    .jsonNumber {
+      color: darkorange;
+    }
+
+    .jsonBoolean {
+      color: blue;
+    }
+
+    .jsonNull {
+      color: magenta;
+    }
+
+    .jsonKey {
+      color: red;
+    }
   </style>
 </head>
 
 <body>
   <!-- #region Icons -->
-  <div id="icons-container">
+  <div id='icons-container'>
     <!-- Get Icons from FontAwesome -->
     <!-- Copy SVG Code -->
 
     <!-- #region Svg sources used multiple times. Automatically hidden -->
     <!-- Arrow Left -->
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <symbol id="icon-arrow" viewBox="0 0 375 375">
+    <svg xmlns='http://www.w3.org/2000/svg'>
+      <symbol id='icon-arrow' viewBox='0 0 375 375'>
         <path
-          d="M93.81 112.5C46.69 152.94 8.06 186.5 7.94 187.06 7.81 187.62 46.56 221.44 94.12 262.12 94.12 262.12 180.62 336.06 180.62 336.06 180.62 336.06 180.94 296.81 180.94 296.81 180.94 296.81 181.31 257.5 181.31 257.5 181.31 257.5 272.5 257.5 272.5 257.5 272.5 257.5 363.75 257.5 363.75 257.5 363.75 257.5 363.75 187.5 363.75 187.5 363.75 187.5 363.75 117.5 363.75 117.5 363.75 117.5 272.5 117.5 272.5 117.5 272.5 117.5 181.25 117.5 181.25 117.5 181.25 56.44 180.81 38.81 180.31 38.87Z" />
+          d='M93.81 112.5C46.69 152.94 8.06 186.5 7.94 187.06 7.81 187.62 46.56 221.44 94.12 262.12 94.12 262.12 180.62 336.06 180.62 336.06 180.62 336.06 180.94 296.81 180.94 296.81 180.94 296.81 181.31 257.5 181.31 257.5 181.31 257.5 272.5 257.5 272.5 257.5 272.5 257.5 363.75 257.5 363.75 257.5 363.75 257.5 363.75 187.5 363.75 187.5 363.75 187.5 363.75 117.5 363.75 117.5 363.75 117.5 272.5 117.5 272.5 117.5 272.5 117.5 181.25 117.5 181.25 117.5 181.25 56.44 180.81 38.81 180.31 38.87Z' />
       </symbol>
     </svg>
 
     <!-- Arrow Left -->
-    <svg id="SVG_VC_LEFT">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_LEFT'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow Right -->
-    <svg id="SVG_VC_RIGHT" style="transform: rotate(180deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_RIGHT' style='transform: rotate(180deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow Up -->
-    <svg id="SVG_VC_UP" style="transform: rotate(90deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_UP' style='transform: rotate(90deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow Down -->
-    <svg id="SVG_VC_DOWN" style="transform: rotate(270deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_DOWN' style='transform: rotate(270deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow UP Left -->
-    <svg id="SVG_VC_UP_LEFT" style="transform: rotate(45deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_UP_LEFT' style='transform: rotate(45deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow UP Right -->
-    <svg id="SVG_VC_UP_RIGHT" style="transform: rotate(135deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_UP_RIGHT' style='transform: rotate(135deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow Down Left -->
-    <svg id="SVG_VC_DOWN_LEFT" style="transform: rotate(315deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_DOWN_LEFT' style='transform: rotate(315deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
 
     <!-- Arrow Down Right -->
-    <svg id="SVG_VC_DOWN_RIGHT" style="transform: rotate(225deg);">
-      <use href="#icon-arrow"></use>
+    <svg id='SVG_VC_DOWN_RIGHT' style='transform: rotate(225deg);'>
+      <use href='#icon-arrow'></use>
     </svg>
   </div>
   <!-- #endregion -->
 
-  <div class="playersHolder">
-    <div class="mainHolder">
-      <div class="histHolder">
-        <div class="history"></div>
+  <div class='playersHolder'>
+    <div class='mainHolder'>
+      <div class='histHolder'>
+        <div class='history'></div>
       </div>
-      <div class="centerHolder">
-        <div class="stickart MCZ_SE line">
-          <div class="stick container">
-            <div class="washer white"></div>
-            <canvas class="canvas" height="782" width="782">
+      <div class='centerHolder'>
+        <div class='stickart MCZ_SE line'>
+          <div class='stick container'>
+            <div class='washer white'></div>
+            <canvas class='canvas' height='782' width='782'>
             </canvas>
-            <div class="ballTop vermillion">
-              <div class="ballTop-body inactive">
+            <div class='ballTop vermillion'>
+              <div class='ballTop-body inactive'>
               </div>
             </div>
           </div>
-          <div class="buttons container">
-            <div class="top row">
-              <div class="buttonHolder">
-                <div class="btn-bdg lp">
-                  <div class="btn-wrap vermillion">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">A</span>
+          <div class='buttons container'>
+            <div class='top row'>
+              <div class='buttonHolder'>
+                <div class='btn-bdg lp'>
+                  <div class='btn-wrap vermillion'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>A</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="buttonHolder">
-                <div class="btn-bdg mp">
-                  <div class="btn-wrap yellow">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">B</span>
+              <div class='buttonHolder'>
+                <div class='btn-bdg mp'>
+                  <div class='btn-wrap yellow'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>B</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="buttonHolder">
-                <div class="btn-bdg hp">
-                  <div class="btn-wrap green">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">C</span>
+              <div class='buttonHolder'>
+                <div class='btn-bdg hp'>
+                  <div class='btn-wrap green'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>C</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="buttonHolder">
-                <div class="btn-bdg ap">
-                  <div class="btn-wrap lightblue">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">D</span>
+              <div class='buttonHolder'>
+                <div class='btn-bdg ap'>
+                  <div class='btn-wrap lightblue'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>D</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="buttonHolder">
-                <div class="btn-bdg lk">
-                  <div class="btn-wrap violet">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">E</span>
+              <div class='buttonHolder'>
+                <div class='btn-bdg lk'>
+                  <div class='btn-wrap violet'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>E</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="buttonHolder">
-                <div class="btn-bdg mk">
-                  <div class="btn-wrap pink">
-                    <div class="btn-body inactive">
-                      <span class="btn-txt">F</span>
+              <div class='buttonHolder'>
+                <div class='btn-bdg mk'>
+                  <div class='btn-wrap pink'>
+                    <div class='btn-body inactive'>
+                      <span class='btn-txt'>F</span>
                     </div>
                   </div>
                 </div>
@@ -693,9 +713,9 @@
     </div>
   </div>
 
-  <div class="debugHolder">
-    <div class="debugBox hidden">
-      <div class="debugText">
+  <div class='debugHolder'>
+    <div class='debugBox hidden'>
+      <div class='debugText'>
       </div>
     </div>
   </div>
@@ -1013,6 +1033,30 @@
     return [(x * 3.8) + CANVAS_FIX, (y * 3.8) + CANVAS_FIX];
   }
 
+  // https://stackoverflow.com/questions/4810841/pretty-print-json-using-javascript
+  function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+      json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    json = json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      var cls = 'jsonNumber';
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          cls = 'jsonKey';
+        } else {
+          cls = 'jsonString';
+        }
+      } else if (/true|false/.test(match)) {
+        cls = 'jsonBoolean';
+      } else if (/null/.test(match)) {
+        cls = 'jsonNull';
+      }
+      return `<span class='${cls}'>${match}</span>`;
+    });
+    return `<pre>${json}</pre>`
+  }
+
   class ClsHistory {
     constructor(player) {
       this._player = player;
@@ -1045,12 +1089,12 @@
       this._inputType = 'k1';
       this._stickLines = Array(40).fill().map((x) => toCanvasPoint(25, 25));
       this._stickLineColor = Array(40).fill().map((x, idx) =>
-        "rgb(210, " + Math.floor(135 - idx * 2) + ", " + Math.floor(235 - idx * 2) + ")"
+        'rgb(210, ' + Math.floor(135 - idx * 2) + ', ' + Math.floor(235 - idx * 2) + ')'
       );
       this._canvas = this._playerDiv.querySelector('.canvas');
       this._ctx = this._canvas.getContext('2d');
-      this._ctx.lineCap = "round";
-      this._ctx.imageSmoothingQuality = "high";
+      this._ctx.lineCap = 'round';
+      this._ctx.imageSmoothingQuality = 'high';
       this._ctx.imageSmoothingEnabled = true;
       this._ctx.mozImageSmoothingEnabled = true;
       this._ctx.msImageSmoothingEnabled = true;
@@ -1138,7 +1182,7 @@
         }
       }
 
-      const keybit = KEYBIS_MAP.get([this._player, this._inputType, type.replace(/_(down|up|pressed|released|motion)$/g, ""), keycode].join('-'));
+      const keybit = KEYBIS_MAP.get([this._player, this._inputType, type.replace(/_(down|up|pressed|released|motion)$/g, ''), keycode].join('-'));
 
       //console.log(keybit, keycode, isPressing, data);
 
@@ -1308,10 +1352,7 @@
       let keycode = data.keycode || data.virtual_code;
 
       if (DEBUG) {
-        const hexkey = ('000' + keycode.toString(16).toUpperCase()).slice(-5);
-        const event = data.event_type;
-        const device = data.device_index || "-";
-        _debugTextDiv.innerHTML = `keycode: ${'0x' + hexkey}<br/>event: ${event}<br/>device#: ${device}`
+        _debugTextDiv.innerHTML = syntaxHighlight(data);
       }
 
       _p1History.updateKey(keycode, data.event_type, isPressing, data);
