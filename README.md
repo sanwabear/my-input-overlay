@@ -79,6 +79,8 @@ D-->|Monitoring| H
 - **io_client**  
   PCへの入力をWebSocket接続でOBSへ連携するために動作させます。
   ポート番号はOBSで設定したものを指定します。  
+    
+  コマンド例：  
   ```io_client.exe -a ws://localhost:16899 -k -g -n gaming_pc```
 
 - **StreamControl**  
@@ -102,7 +104,7 @@ Neo Geo TO KEY、GP2040-CE x 1pc、GP2040-CE x 2pcsの3つのモードをサポ�
 | 1P BUTTON3 | KEYBOAD E      | P2              | DEVICE #1 P2     |
 | 1P BUTTON4 | KEYBOAD A      | K2              | DEVICE #1 K2     |
 | 1P BUTTON5 | KEYBOAD S      |                 | DEVICE #1 R1     |
-| 1P BUTTON6 | KEYBOAD D      |                 | DEVICE #1 L1     |
+| 1P BUTTON6 | KEYBOAD D      |                 | DEVICE #1 R2     |
 | 2P UP      | KEYBOAD U      | R1              | DEVICE #2 UP     |
 | 2P DOWN    | KEYBOAD J      | L1              | DEVICE #2 DOWN   |
 | 2P LEFT    | KEYBOAD K      | S1              | DEVICE #2 LEFT   |
@@ -112,7 +114,7 @@ Neo Geo TO KEY、GP2040-CE x 1pc、GP2040-CE x 2pcsの3つのモードをサポ�
 | 2P BUTTON3 | KEYPAD 9       | R3              | DEVICE #2 P2     |
 | 2P BUTTON4 | KEYPAD 4       | L3              | DEVICE #2 K2     |
 | 2P BUTTON5 | KEYPAD 5       |                 | DEVICE #2 R1     |
-| 2P BUTTON6 | KEYPAD 6       |                 | DEVICE #2 L1     |
+| 2P BUTTON6 | KEYPAD 6       |                 | DEVICE #2 R2     |
 
 
 ### Neo Geo TO KEY

@@ -1,6 +1,6 @@
 {
-    "buttonLayout": "line",
-    "debug": "0",
+    "buttonLayout": "box",
+    "debug": "1",
     "delayFrames": "2",
     "hist": "1",
     "historyMax": "22",
@@ -12,5 +12,5 @@
     "inputType": "k2",
     "opacity": "90",
     "port": "16899",
-    "timestamp": "1713002408"
+    "timestamp": "1713007234"
 }
