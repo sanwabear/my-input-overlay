@@ -715,8 +715,6 @@
 <script>
   // #region ----- YOU CAN CHANGE THESE VALUES -----
 
-  let HIST_HTML = true;
-  let INPUT_HTML = true;
   let DEBUG = false;
   let OPACITY = 100.0 / 100.0;
   let PORT = 16899;
@@ -970,8 +968,6 @@
       HISTORY_MAX = parseInt(config['historyMax'] || 22);
       HISTORY_TIMEOUT = parseInt(config['historyTimeout'] || 30000);
       HISTORY_TOP_ALIGN = toBoolean(config['historyTopAlign'], true);
-      HIST_HTML = toBoolean(config['hist'], true);
-      INPUT_HTML = toBoolean(config['input'], true);
       DEBUG = toBoolean(config['debug'], true);
       OPACITY = (parseInt(config['opacity'] || 100) / 100.0);
       const prevPORT = PORT;
@@ -1066,6 +1062,8 @@
 
   class ClsHistory {
     constructor(player) {
+      this.HIST_HTML = true;
+      this.INPUT_HTML = true;
       this._player = player;
       this._playerDiv = document.querySelector('.player' + player);
       this._historyDiv = this._playerDiv.querySelector('.history');
@@ -1130,12 +1128,14 @@
       if (this._combinedKeybitQueue.length !== this.DELAY_FRAMES) {
         this._combinedKeybitQueue = Array(this.DELAY_FRAMES).fill().map((x) => INPUT_NAN);
       }
-      if (!HIST_HTML) {
+      this.HIST_HTML = toBoolean(config[`hist${this._player}p`], true);
+      if (!this.HIST_HTML) {
         this._histDiv.classList.add('hide');
       } else {
         this._histDiv.classList.remove('hide');
       }
-      if (!INPUT_HTML) {
+      this.INPUT_HTML = toBoolean(config[`input${this._player}p`], true);
+      if (!this.INPUT_HTML) {
         this._centerDiv.classList.add('hide');
       } else {
         this._centerDiv.classList.remove('hide');
@@ -1227,7 +1227,7 @@
         // Fade out elements that were kept because a key was still pressed
         this.startRemovingLast();
 
-        if (HIST_HTML) {
+        if (this.HIST_HTML) {
           if (HISTORY_TOP_ALIGN) {
             this._historyDiv.insertBefore(combinationElement, this._historyDiv.firstChild);
           } else {
