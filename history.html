@@ -519,21 +519,12 @@
       color: #999999FB
     }
 
-    .debugHolder {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      outline: dashed 1px black;
-      position: absolute;
-    }
-
     .debugBox {
-      width: 1300px;
-      height: 500px;
+      width: 1100px;
+      height: 30%;
       background-color: #404040FD;
       position: absolute;
-      top: 50%;
+      top: 15%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -546,7 +537,7 @@
     }
 
     .debugText {
-      font-size: 40px;
+      font-size: larger;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -777,6 +768,22 @@
   const INPUT_AK = 0x80;
   const INPUT_MASK_ARROW = INPUT_UP | INPUT_DOWN | INPUT_LEFT | INPUT_RIGHT;
   const INPUT_MASK_BUTTON = INPUT_LP | INPUT_MP | INPUT_HP | INPUT_AP | INPUT_LK | INPUT_MK | INPUT_HK | INPUT_AK;
+  
+  const GP2040_K1    = 0x0000;
+  const GP2040_K2    = 0x0001;
+  const GP2040_P1    = 0x0002;
+  const GP2040_P2    = 0x0003;
+  const GP2040_S1    = 0x0004;
+  const GP2040_R2    = 0x0005;
+  const GP2040_S2    = 0x0006;
+  const GP2040_L3    = 0x0007;
+  const GP2040_R3    = 0x0008;
+  const GP2040_L1    = 0x0009;
+  const GP2040_R1    = 0x000A;
+  const GP2040_UP    = 0x000B;
+  const GP2040_DOWN  = 0x000C;
+  const GP2040_LEFT  = 0x000D;
+  const GP2040_RIGHT = 0x000E;
 
   /**
    * Keycodes from: https://github.com/kwhat/libuiohook/blob/1.2/include/uiohook.h
@@ -820,49 +827,49 @@
     [[2, 'k1', 'key', 0x004c], INPUT_LK],    // 2P E     as KEYPAD 5
     [[2, 'k1', 'key', 0x004d], INPUT_MK],    // 2P F     as KEYPAD 6
     // Player ONE
-    [[1, 'k2', 'controller_button', 0x000B], INPUT_UP],    // 1P UP    as GP2040-CE UP
-    [[1, 'k2', 'controller_button', 0x000C], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
-    [[1, 'k2', 'controller_button', 0x000D], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
-    [[1, 'k2', 'controller_button', 0x000E], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
-    [[1, 'k2', 'controller_button', 0x0002], INPUT_LP],    // 1P A     as GP2040-CE P1
-    [[1, 'k2', 'controller_button', 0x0000], INPUT_MP],    // 1P B     as GP2040-CE K1
-    [[1, 'k2', 'controller_button', 0x0003], INPUT_HP],    // 1P C     as GP2040-CE P2
-    [[1, 'k2', 'controller_button', 0x0001], INPUT_AP],    // 1P D     as GP2040-CE K2
-    [[1, 'k3', 'controller_button', 0x000A], INPUT_LK],    // 1P E     as GP2040-CE R1
-    [[1, 'k3', 'controller_axis', 0x0005], INPUT_MK],      // 1P F     as GP2040-CE R2
+    [[1, 'k2', 'controller_button', GP2040_UP   ], INPUT_UP],    // 1P UP    as GP2040-CE UP
+    [[1, 'k2', 'controller_button', GP2040_DOWN ], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
+    [[1, 'k2', 'controller_button', GP2040_LEFT ], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
+    [[1, 'k2', 'controller_button', GP2040_RIGHT], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
+    [[1, 'k2', 'controller_button', GP2040_P1   ], INPUT_LP],    // 1P A     as GP2040-CE P1
+    [[1, 'k2', 'controller_button', GP2040_K1   ], INPUT_MP],    // 1P B     as GP2040-CE K1
+    [[1, 'k2', 'controller_button', GP2040_P2   ], INPUT_HP],    // 1P C     as GP2040-CE P2
+    [[1, 'k2', 'controller_button', GP2040_K2   ], INPUT_AP],    // 1P D     as GP2040-CE K2
+    [[1, 'k3', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
+    [[1, 'k3', 'controller_axis'  , GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
     // Player TWO
-    [[2, 'k2', 'controller_button', 0x000A], INPUT_UP],    // 2P UP    as GP2040-CE R1
-    [[2, 'k2', 'controller_button', 0x0009], INPUT_DOWN],  // 2P DOWN  as GP2040-CE L1
-    [[2, 'k2', 'controller_axis', 0x0005], INPUT_LEFT],    // 2P LEFT  as GP2040-CE R2
-    [[2, 'k2', 'controller_axis', 0x0004], INPUT_RIGHT],   // 2P RIGHT as GP2040-CE S1
-    [[2, 'k2', 'controller_button', 0x0006], INPUT_LP],    // 2P A     as GP2040-CE S2
-    [[2, 'k2', 'controller_button', 0x0004], INPUT_MP],    // 2P B     as GP2040-CE S1
-    [[2, 'k2', 'controller_button', 0x0007], INPUT_HP],    // 2P C     as GP2040-CE L3
-    [[2, 'k2', 'controller_button', 0x0008], INPUT_AP],    // 2P D     as GP2040-CE R3
-    [[2, 'k2', 'controller_button', 0xFFFF], INPUT_LK],    // 2P E     as GP2040-CE
-    [[2, 'k2', 'controller_button', 0xFFFF], INPUT_MK],    // 2P F     as GP2040-CE
+    [[2, 'k2', 'controller_button', GP2040_R1   ], INPUT_UP],    // 2P UP    as GP2040-CE R1
+    [[2, 'k2', 'controller_button', GP2040_L1   ], INPUT_DOWN],  // 2P DOWN  as GP2040-CE L1
+    [[2, 'k2', 'controller_axis',   GP2040_R2   ], INPUT_LEFT],  // 2P LEFT  as GP2040-CE R2
+    [[2, 'k2', 'controller_axis',   GP2040_S1   ], INPUT_RIGHT], // 2P RIGHT as GP2040-CE S1
+    [[2, 'k2', 'controller_button', GP2040_S2   ], INPUT_LP],    // 2P A     as GP2040-CE S2
+    [[2, 'k2', 'controller_button', GP2040_S1   ], INPUT_MP],    // 2P B     as GP2040-CE S1
+    [[2, 'k2', 'controller_button', GP2040_L3   ], INPUT_HP],    // 2P C     as GP2040-CE L3
+    [[2, 'k2', 'controller_button', GP2040_R3   ], INPUT_AP],    // 2P D     as GP2040-CE R3
+    [[2, 'k2', 'controller_button', 0xFFFF      ], INPUT_LK],    // 2P E     as GP2040-CE
+    [[2, 'k2', 'controller_button', 0xFFFF      ], INPUT_MK],    // 2P F     as GP2040-CE
     // Player ONE
-    [[1, 'k3', 'controller_button', 0x000B], INPUT_UP],    // 1P UP    as GP2040-CE UP
-    [[1, 'k3', 'controller_button', 0x000C], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
-    [[1, 'k3', 'controller_button', 0x000D], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
-    [[1, 'k3', 'controller_button', 0x000E], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
-    [[1, 'k3', 'controller_button', 0x0002], INPUT_LP],    // 1P A     as GP2040-CE P1
-    [[1, 'k3', 'controller_button', 0x0000], INPUT_MP],    // 1P B     as GP2040-CE K1
-    [[1, 'k3', 'controller_button', 0x0003], INPUT_HP],    // 1P C     as GP2040-CE P2
-    [[1, 'k3', 'controller_button', 0x0001], INPUT_AP],    // 1P D     as GP2040-CE K2
-    [[1, 'k3', 'controller_button', 0x000A], INPUT_LK],    // 1P E     as GP2040-CE R1
-    [[1, 'k3', 'controller_axis', 0x0005], INPUT_MK],      // 1P F     as GP2040-CE R2
+    [[1, 'k3', 'controller_button', GP2040_UP   ], INPUT_UP],    // 1P UP    as GP2040-CE UP
+    [[1, 'k3', 'controller_button', GP2040_DOWN ], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
+    [[1, 'k3', 'controller_button', GP2040_LEFT ], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
+    [[1, 'k3', 'controller_button', GP2040_RIGHT], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
+    [[1, 'k3', 'controller_button', GP2040_P1   ], INPUT_LP],    // 1P A     as GP2040-CE P1
+    [[1, 'k3', 'controller_button', GP2040_K1   ], INPUT_MP],    // 1P B     as GP2040-CE K1
+    [[1, 'k3', 'controller_button', GP2040_P2   ], INPUT_HP],    // 1P C     as GP2040-CE P2
+    [[1, 'k3', 'controller_button', GP2040_K2   ], INPUT_AP],    // 1P D     as GP2040-CE K2
+    [[1, 'k3', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
+    [[1, 'k3', 'controller_axis',   GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
     // Player TWO
-    [[2, 'k3', 'controller_button', 0x000B], INPUT_UP],    // 1P UP    as GP2040-CE UP
-    [[2, 'k3', 'controller_button', 0x000C], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
-    [[2, 'k3', 'controller_button', 0x000D], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
-    [[2, 'k3', 'controller_button', 0x000E], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
-    [[2, 'k3', 'controller_button', 0x0002], INPUT_LP],    // 1P A     as GP2040-CE P1
-    [[2, 'k3', 'controller_button', 0x0000], INPUT_MP],    // 1P B     as GP2040-CE K1
-    [[2, 'k3', 'controller_button', 0x0003], INPUT_HP],    // 1P C     as GP2040-CE P2
-    [[2, 'k3', 'controller_button', 0x0001], INPUT_AP],    // 1P D     as GP2040-CE K2
-    [[2, 'k3', 'controller_button', 0x000A], INPUT_LK],    // 1P E     as GP2040-CE R1
-    [[2, 'k3', 'controller_axis', 0x0005], INPUT_MK],      // 1P F     as GP2040-CE R2
+    [[2, 'k3', 'controller_button', GP2040_UP   ], INPUT_UP],    // 1P UP    as GP2040-CE UP
+    [[2, 'k3', 'controller_button', GP2040_DOWN ], INPUT_DOWN],  // 1P DOWN  as GP2040-CE DOWN
+    [[2, 'k3', 'controller_button', GP2040_LEFT ], INPUT_LEFT],  // 1P LEFT  as GP2040-CE LEFT
+    [[2, 'k3', 'controller_button', GP2040_RIGHT], INPUT_RIGHT], // 1P RIGHT as GP2040-CE RIGHT
+    [[2, 'k3', 'controller_button', GP2040_P1   ], INPUT_LP],    // 1P A     as GP2040-CE P1
+    [[2, 'k3', 'controller_button', GP2040_K1   ], INPUT_MP],    // 1P B     as GP2040-CE K1
+    [[2, 'k3', 'controller_button', GP2040_P2   ], INPUT_HP],    // 1P C     as GP2040-CE P2
+    [[2, 'k3', 'controller_button', GP2040_K2   ], INPUT_AP],    // 1P D     as GP2040-CE K2
+    [[2, 'k3', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
+    [[2, 'k3', 'controller_axis',   GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
   ]).forEach((v, k) => KEYBIS_MAP.set(k.join('-'), v));
 
   const KEYCODES = new Map([
