@@ -95,14 +95,14 @@ Neo Geo TO KEY、GP2040-CE x 1pc、GP2040-CE x 2pcsの3つのモードをサポ�
 
 |  JAMMA     | [Neo Geo TO KEY](#neo-geo-to-key) | [GP2040-CE x 1pc](#gp2040-ce-x-1pc) | [GP2040-CE x 2pcs](#gp2040-ce-x-2pcs) |
 | :--------: | :------------: | :-------------: | :--------------: |
-| 1P UP      | ARROW UP       | UP              | DEVICE #1 UP     |
-| 1P DOWN    | ARROW DOWN     | DOWN            | DEVICE #1 DOWN   |
-| 1P LEFT    | ARROW LEFT     | LEFT            | DEVICE #1 LEFT   |
-| 1P RIGHT   | ARROW RIGHT    | RIGHT           | DEVICE #1 RIGHT  |
-| 1P BUTTON1 | KEYBOAD Q      | P1              | DEVICE #1 P1     |
-| 1P BUTTON2 | KEYBOAD W      | K1              | DEVICE #1 K1     |
-| 1P BUTTON3 | KEYBOAD E      | P2              | DEVICE #1 P2     |
-| 1P BUTTON4 | KEYBOAD A      | K2              | DEVICE #1 K2     |
+| 1P UP      | ARROW UP       | UP    GP02      | DEVICE #1 UP     |
+| 1P DOWN    | ARROW DOWN     | DOWN  GP03      | DEVICE #1 DOWN   |
+| 1P LEFT    | ARROW LEFT     | LEFT  GP04      | DEVICE #1 LEFT   |
+| 1P RIGHT   | ARROW RIGHT    | RIGHT GP05      | DEVICE #1 RIGHT  |
+| 1P BUTTON1 | KEYBOAD Q      | P1    GP10      | DEVICE #1 P1     |
+| 1P BUTTON2 | KEYBOAD W      | K1    GP06      | DEVICE #1 K1     |
+| 1P BUTTON3 | KEYBOAD E      | P2    GP11      | DEVICE #1 P2     |
+| 1P BUTTON4 | KEYBOAD A      | K2    GP07      | DEVICE #1 K2     |
 | 1P BUTTON5 | KEYBOAD S      |                 | DEVICE #1 R1     |
 | 1P BUTTON6 | KEYBOAD D      |                 | DEVICE #1 R2     |
 | 2P UP      | KEYBOAD U      | R1              | DEVICE #2 UP     |
