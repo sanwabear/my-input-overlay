@@ -1,19 +1,19 @@
 <!DOCTYPE StreamControl>
 <items>
- <timestamp>1714337011</timestamp>
+ <timestamp>1744463732</timestamp>
  <buttonLayout>line</buttonLayout>
- <debug>0</debug>
+ <debug>1</debug>
  <delayFrames>2</delayFrames>
  <hist1p>1</hist1p>
- <hist2p>0</hist2p>
- <historyMax>22</historyMax>
+ <hist2p>1</hist2p>
+ <historyMax>23</historyMax>
  <historyTimeout>30000</historyTimeout>
  <historyTopAlign>1</historyTopAlign>
  <input1p>1</input1p>
- <input2p>0</input2p>
- <inputDevice1p>0</inputDevice1p>
- <inputDevice2p>1</inputDevice2p>
- <inputType>k2</inputType>
+ <input2p>1</input2p>
+ <inputDevice1p>1</inputDevice1p>
+ <inputDevice2p>0</inputDevice2p>
+ <inputType>k4</inputType>
  <opacity>90</opacity>
  <port>16899</port>
 </items>

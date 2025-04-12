@@ -783,22 +783,6 @@
   const GP2040_LEFT  = 0x000D;
   const GP2040_RIGHT = 0x000E;
 
-  const XINPUT_B1    = 0x0000;
-  const XINPUT_B2    = 0x0001;
-  const XINPUT_B3    = 0x0002;
-  const XINPUT_B4    = 0x0003;
-  const XINPUT_S1    = 0x0004;
-  const XINPUT_B5    = 0x0005;
-  const XINPUT_S2    = 0x0006;
-  const XINPUT_B6    = 0x0007;
-  const XINPUT_B7    = 0x0008;
-  const XINPUT_B8    = 0x0009;
-  const XINPUT_B9    = 0x000A;
-  const XINPUT_UP    = 0x000B;
-  const XINPUT_DOWN  = 0x000C;
-  const XINPUT_LEFT  = 0x000D;
-  const XINPUT_RIGHT = 0x000E;
-
   /**
    * Keycodes from: https://github.com/kwhat/libuiohook/blob/1.2/include/uiohook.h
    * [0] -> libuiohook key
@@ -849,8 +833,8 @@
     [[1, 'k2', 'controller_button', GP2040_K1   ], INPUT_MP],    // 1P B     as GP2040-CE K1
     [[1, 'k2', 'controller_button', GP2040_P2   ], INPUT_HP],    // 1P C     as GP2040-CE P2
     [[1, 'k2', 'controller_button', GP2040_K2   ], INPUT_AP],    // 1P D     as GP2040-CE K2
-    [[1, 'k2', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
-    [[1, 'k2', 'controller_axis'  , GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
+    [[1, 'k3', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
+    [[1, 'k3', 'controller_axis'  , GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
     // Player TWO
     [[2, 'k2', 'controller_button', GP2040_R1   ], INPUT_UP],    // 2P UP    as GP2040-CE R1
     [[2, 'k2', 'controller_button', GP2040_L1   ], INPUT_DOWN],  // 2P DOWN  as GP2040-CE L1
@@ -884,30 +868,6 @@
     [[2, 'k3', 'controller_button', GP2040_K2   ], INPUT_AP],    // 1P D     as GP2040-CE K2
     [[2, 'k3', 'controller_button', GP2040_R1   ], INPUT_LK],    // 1P E     as GP2040-CE R1
     [[2, 'k3', 'controller_axis',   GP2040_R2   ], INPUT_MK],    // 1P F     as GP2040-CE R2
-
-    // Player ONE
-    [[1, 'k4', 'controller_button', XINPUT_UP   ], INPUT_UP],    // 1P UP    as JAMMA to xinput UP
-    [[1, 'k4', 'controller_button', XINPUT_DOWN ], INPUT_DOWN],  // 1P DOWN  as JAMMA to xinput DOWN
-    [[1, 'k4', 'controller_button', XINPUT_LEFT ], INPUT_LEFT],  // 1P LEFT  as JAMMA to xinput LEFT
-    [[1, 'k4', 'controller_button', XINPUT_RIGHT], INPUT_RIGHT], // 1P RIGHT as JAMMA to xinput RIGHT
-    [[1, 'k4', 'controller_button', XINPUT_B1   ], INPUT_LP],    // 1P A     as JAMMA to xinput 1
-    [[1, 'k4', 'controller_button', XINPUT_B2   ], INPUT_MP],    // 1P B     as JAMMA to xinput 2
-    [[1, 'k4', 'controller_button', XINPUT_B3   ], INPUT_HP],    // 1P C     as JAMMA to xinput 3
-    [[1, 'k4', 'controller_button', XINPUT_B4   ], INPUT_AP],    // 1P D     as JAMMA to xinput 4
-    [[1, 'k4', 'controller_button', XINPUT_B5   ], INPUT_LK],    // 1P E     as JAMMA to xinput 5
-    [[1, 'k4', 'controller_button', XINPUT_B6   ], INPUT_MK],    // 1P F     as JAMMA to xinput 6
-    // Player TWO
-    [[2, 'k4', 'controller_button', XINPUT_UP   ], INPUT_UP],    // 2P UP    as JAMMA to xinput UP
-    [[2, 'k4', 'controller_button', XINPUT_DOWN ], INPUT_DOWN],  // 2P DOWN  as JAMMA to xinput DOWN
-    [[2, 'k4', 'controller_button', XINPUT_LEFT ], INPUT_LEFT],  // 2P LEFT  as JAMMA to xinput LEFT
-    [[2, 'k4', 'controller_button', XINPUT_RIGHT], INPUT_RIGHT], // 2P RIGHT as JAMMA to xinput RIGHT
-    [[2, 'k4', 'controller_button', XINPUT_B1   ], INPUT_LP],    // 2P A     as JAMMA to xinput 1
-    [[2, 'k4', 'controller_button', XINPUT_B2   ], INPUT_MP],    // 2P B     as JAMMA to xinput 2
-    [[2, 'k4', 'controller_button', XINPUT_B3   ], INPUT_HP],    // 2P C     as JAMMA to xinput 3
-    [[2, 'k4', 'controller_button', XINPUT_B4   ], INPUT_AP],    // 2P D     as JAMMA to xinput 4
-    [[2, 'k4', 'controller_button', XINPUT_B5   ], INPUT_LK],    // 2P E     as JAMMA to xinput 5
-    [[2, 'k4', 'controller_button', XINPUT_B6   ], INPUT_MK],    // 2P F     as JAMMA to xinput 6
-
   ]).forEach((v, k) => KEYBIS_MAP.set(k.join('-'), v));
 
   const KEYCODES = new Map([
@@ -1223,7 +1183,7 @@
     }
 
     updateKey(keycode, type, isPressing, data) {
-      if (this._inputType === 'k3' || this._inputType === 'k4') {
+      if (this._inputType === 'k3') {
         if (data.device_index !== this._inputDevice) {
           return;
         }
@@ -1414,6 +1374,28 @@
     onKeyEvent(data, e);
   }
 
+  function pollGamepad() {
+    const gamepads = navigator.getGamepads();
+    const gp = gamepads[0];
+    if (!gp) return;
+    let keybit = 0;
+
+    if (gp.buttons[12]?.pressed) keybit |= INPUT_UP;
+    if (gp.buttons[13]?.pressed) keybit |= INPUT_DOWN;
+    if (gp.buttons[14]?.pressed) keybit |= INPUT_LEFT;
+    if (gp.buttons[15]?.pressed) keybit |= INPUT_RIGHT;
+
+    if (gp.buttons[0]?.pressed) keybit |= INPUT_LP;
+    if (gp.buttons[1]?.pressed) keybit |= INPUT_MP;
+    if (gp.buttons[2]?.pressed) keybit |= INPUT_HP;
+    if (gp.buttons[3]?.pressed) keybit |= INPUT_AP;
+    if (gp.buttons[4]?.pressed) keybit |= INPUT_LK;
+    if (gp.buttons[5]?.pressed) keybit |= INPUT_MK;
+
+    updateHistory(keybit);
+  }
+
+
   // Make the function wait until the connection is made...
   function waitForSocketConnection(socket, callback) {
     setTimeout(function () {
@@ -1499,7 +1481,7 @@
     _p2History.updateUI(frames);
   });
 
-  startWebsocket();
+  //startWebsocket();
 </script>
 
 </html>

@@ -1,18 +1,18 @@
 {
     "buttonLayout": "line",
-    "debug": "0",
+    "debug": "1",
     "delayFrames": "2",
     "hist1p": "1",
-    "hist2p": "0",
-    "historyMax": "22",
+    "hist2p": "1",
+    "historyMax": "23",
     "historyTimeout": "30000",
     "historyTopAlign": "1",
     "input1p": "1",
-    "input2p": "0",
-    "inputDevice1p": "0",
-    "inputDevice2p": "1",
-    "inputType": "k2",
+    "input2p": "1",
+    "inputDevice1p": "1",
+    "inputDevice2p": "0",
+    "inputType": "k4",
     "opacity": "90",
     "port": "16899",
-    "timestamp": "1714337011"
+    "timestamp": "1744463732"
 }

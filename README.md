@@ -19,17 +19,45 @@ OBSを使ったアーケードゲームのキャプチャー構成に入力表�
 
 ```mermaid
 flowchart TD
-    A[fa:fa-microchip Arcade PCB]
-    -->|JAMMA| B[fa:fa-network-wired JAMMA Extractor]
-    -->|JAMMA| C[fa:fa-gear CBOX]
-    -->D[fa:fa-gamepad Arcade Stick]
+subgraph A筐体
+    aA[fa:fa-microchip 基板1]
+    <-->|JAMMA| aB[fa:fa-network-wired JAMMA Extractor]
 
-    B-->|DB15 x 2| E[fa:fa-gear Neo Geo TO KEY or GP2040-CE]
-    -->|fa:fa-usb USB| F[fa:fa-desktop PC]
-    
-    B-->|"`SCART`"| G[fa:fa-gear Scaler]
-    G -->|HDMI| H[fa:fa-gear CaptureBOX]
-    -->|fa:fa-usb USB| F
+    aB <-->|JAMMA| aC[fa:fa-gear A筐体]
+    aB -->|DB15 x 2| aE[fa:GP2040-CE]
+    aB -->|SCART RGBs| aG[fa:fa-gear OSSC]
+
+    aH[fa:fa-gear HDC104]
+    aI[fa:fa-gear Elgato Game Capture HD60 X]
+    aJ[fa:fa-gear ezcap273]
+
+    aG -->|HDMI1.4| aH
+    aH -->|HDMI2.0| aI
+    aH -->|HDMI1.4| aJ
+end
+subgraph B筐体
+    bA[fa:fa-microchip 基板2]
+    <-->|JAMMA| bB[fa:fa-network-wired JAMMA Extractor]
+
+    bB -->|SCART RGBs| bG[fa:fa-gear OSSC]
+    bB -->|DB15 x 2| bE[fa:GP2040-CE]
+    bB <-->|JAMMA| bC[fa:fa-gear B筐体]
+
+    bH[fa:fa-gear HDC102]
+    bI[fa:fa-gear NZXT Signal HD60]
+    bJ[fa:fa-gear ezcap273]
+
+    bG -->|HDMI1.4| bH
+    bH -->|HDMI2.0| bI
+    bH -->|HDMI1.4| bJ
+end
+
+cF[fa:fa-desktop PC OBS]
+
+  aE -->|fa:fa-usb USB2.0| cF
+  bE -->|fa:fa-usb USB2.0| cF
+  aI -->|fa:fa-usb USB3.1 Gen1| cF
+  bI -->|fa:fa-usb USB3.2 Gen1| cF
 ```
 
 - **JAMMA Extractor**  
