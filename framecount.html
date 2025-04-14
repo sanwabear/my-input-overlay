@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      z-index: 0;
+    }
+    #counter {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 72px;
+      font-family: monospace;
+      z-index: 10;
+      text-shadow: 1px 1px 2px black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="frameCanvas"></canvas>
+  <div id="counter">0</div>
+
+  <script>
+    const canvas = document.getElementById("frameCanvas");
+    const ctx = canvas.getContext("2d");
+    const counter = document.getElementById("counter");
+
+    let width, height, frame = 0, cycle = 0;
+    const colors = [
+  "#ff0000", // 赤
+  "#00ff00", // 緑
+  "#0000ff", // 青
+  "#ffff00", // 黄
+  "#ff00ff", // マゼンタ
+  "#00ffff", // シアン
+  "#ffffff", // 白
+  "#ffa500"  // オレンジ
+];
+    const boxCount = 60;
+    let positions = [];
+    let colorMap = new Array(boxCount).fill(colors[0]);
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      calculatePositions();
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function calculatePositions() {
+      positions = [];
+
+      const edgeCounts = [18, 12, 18, 12]; // 上・右・下・左
+      const [topCount, rightCount, bottomCount, leftCount] = edgeCounts;
+      const total = topCount + rightCount + bottomCount + leftCount; // = 60
+
+      const topW = width / (topCount + 1);
+      const rightH = height / (rightCount + 1);
+      const bottomW = width / (bottomCount + 1);
+      const leftH = height / (leftCount + 1);
+      const xx = 20;
+
+      // 上辺（中央→右）
+      for (let i = 0; i < topCount / 2; i++) {
+        const x = width / 2 + i * topW;
+        positions.push({ x, y: 0, w: topW, h: xx });
+      }
+
+      // 右辺（上→下）
+      for (let i = 0; i < rightCount; i++) {
+        const y = (i + 1) * rightH;
+        positions.push({ x: width - xx, y, w: xx, h: rightH });
+      }
+
+      // 下辺（右→左）
+      for (let i = 0; i < bottomCount; i++) {
+        const x = width - (i + 1) * bottomW;
+        positions.push({ x, y: height - xx, w: bottomW, h: xx });
+      }
+
+      // 左辺（下→上）
+      for (let i = 0; i < leftCount; i++) {
+        const y = height - (i + 1) * leftH;
+        positions.push({ x: 0, y, w: xx, h: leftH });
+      }
+
+      // 上辺（左→中央）
+      for (let i = topCount / 2 - 1; i >= 0; i--) {
+        const x = width / 2 - (i + 1) * topW;
+        positions.push({ x, y: 0, w: topW, h: xx });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      const currentColor = colors[cycle % colors.length];
+
+      counter.textContent = frame;
+      counter.style.color = currentColor;
+
+      colorMap[frame] = currentColor;
+
+      for (let i = 0; i < boxCount; i++) {
+        const pos = positions[i];
+        ctx.fillStyle = colorMap[i];
+        ctx.fillRect(pos.x, pos.y, pos.w, pos.h);
+
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "black";
+        ctx.strokeRect(pos.x, pos.y, pos.w, pos.h);
+      }
+
+      frame++;
+      if (frame >= boxCount) {
+        frame = 0;
+        cycle++;
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>
