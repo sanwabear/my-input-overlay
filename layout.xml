@@ -36,7 +36,7 @@
     <label                         x="180" y="240"  width="200" height="22">: {1Stick + 4Buttons} x2</label>
     <label                         x="180" y="265"  width="200" height="22">: {1Stick + 6Buttons} x2</label>
     <radioGroup id="inputType">
-        <radioButton               x="30"  y="190"  width="400" height="22" value="k4">JAMMA to xinput                                         </radioButton>
+        <radioButton               x="30"  y="190"  width="400" height="22" value="k4">JAMMA TO xinput                                         </radioButton>
         <radioButton               x="30"  y="215"  width="400" height="22" value="k1">Neo Geo TO KEY (artax)                                  </radioButton>
         <radioButton               x="30"  y="240"  width="400" height="22" value="k2">GP2040-CE x1pc                                          </radioButton>
         <radioButton               x="30"  y="265"  width="400" height="22" value="k3">GP2040-CE x2pcs                                         </radioButton>

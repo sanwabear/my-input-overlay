@@ -103,10 +103,14 @@ D-->|Monitoring| H
 
 - **Input-Overlay**  
   OBSへインストールしてください。
+  インストール後、OBS本体を管理者権限で実行してください。
+
 
 - **io_client**  
   PCへの入力をWebSocket接続でOBSへ連携するために動作させます。
   ポート番号はOBSで設定したものを指定します。  
+  io_watcher.exeを使えば監視を開始できるまでループします。
+  管理者権限で実行してください。
     
   コマンド例：  
   ```io_client.exe -a ws://localhost:16899 -k -g -n gaming_pc```
@@ -144,6 +148,11 @@ Neo Geo TO KEY、GP2040-CE x 1pc、GP2040-CE x 2pcsの3つのモードをサポ�
 | 2P BUTTON5 | KEYPAD 5       |                 | DEVICE #2 R1     |
 | 2P BUTTON6 | KEYPAD 6       |                 | DEVICE #2 R2     |
 
+
+### JAMMA TO xinput
+
+aliexpressなどで購入できるJAMMAからxinputへ変換するアダプタからの入力をサポートします。
+ただし、現状では6ボタンには対応できていません。
 
 ### Neo Geo TO KEY
 
@@ -214,7 +223,11 @@ Neo Geo TO KEYの駆動にDB15からの5Vを利用する場合はUSBコネクタ
   入力デバイスを選択します。
   - Display Keycode
     チェックONでデバッグ用とで用いるキーコードを表示させます。
+  - Display lagcheck
+    ラグチェック用に入力検知している間中は画面中央に赤い四角を表示させます。
   - Optoins
+    - JAMMA TO xinput
+      [JAMMA TO xinput](#jamma-to-xinput)を使用します。
     - Neo Geo TO KEY(artax)  
       [Neo Geo TO KEY](#neo-geo-to-key)を使用します。
     - GP2040-CE x 1pc  
@@ -225,4 +238,3 @@ Neo Geo TO KEYの駆動にDB15からの5Vを利用する場合はUSBコネクタ
         1プレイヤーとして使用するデバイスIDを指定します。(0~9)  
       - Device ID 2P  
         2プレイヤーとして使用するデバイスIDを指定します。(0~9)  
-      
