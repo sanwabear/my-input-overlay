@@ -1444,6 +1444,8 @@
 
       _p1History.updateKey(keycode, data.event_type, isPressing, data);
       _p2History.updateKey(keycode, data.event_type, isPressing, data);
+      _p1History.updateUI(1);
+      _p2History.updateUI(1);
     } else {
       console.log(data);
     }
