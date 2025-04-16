@@ -1,5 +1,6 @@
 {
     "buttonLayout": "line",
+    "check": "1",
     "debug": "1",
     "delayFrames": "2",
     "hist1p": "1",
@@ -14,5 +15,5 @@
     "inputType": "k4",
     "opacity": "90",
     "port": "16899",
-    "timestamp": "1744463732"
+    "timestamp": "1744809372"
 }

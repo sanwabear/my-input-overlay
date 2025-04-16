@@ -30,6 +30,7 @@
     <label                         x="10"  y="140"  width="430" height="22">Input Device ─────────────────────────────</label>
     <checkBox id="debug"           x="30"  y="165"  width="200" height="22">Display Keycode</checkBox>
 
+    <checkBox id="check"           x="180" y="165"  width="200" height="22">Display Lag-check</checkBox>
     <label                         x="180" y="190"  width="200" height="22">: {1Stick + 6Buttons} x2</label>
     <label                         x="180" y="215"  width="200" height="22">: {1Stick + 4Buttons} x2</label>
     <label                         x="180" y="240"  width="200" height="22">: {1Stick + 4Buttons} x2</label>
