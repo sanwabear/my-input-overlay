@@ -57,9 +57,10 @@
 
     p.key-combination.hidden {
       opacity: 0;
-      transition-property: opacity;
-      transition-timing-function: ease-out;
-      transition-duration: 1s
+      //transition-property: opacity;
+      //transition-timing-function: ease-out;
+      //transition-duration: 1s
+      transition: none;
     }
 
     *+p.key-combination {
@@ -531,9 +532,10 @@
 
     div.debugBox.hidden {
       opacity: 0;
-      transition-property: opacity;
-      transition-timing-function: ease-out;
-      transition-duration: 1s
+      //transition-property: opacity;
+      //transition-timing-function: ease-out;
+      //transition-duration: 1s
+      transition: none;
     }
 
     .lagBox {
@@ -550,9 +552,10 @@
 
     div.lagBox.hidden {
       opacity: 0;
-      transition-property: opacity;
-      transition-timing-function: ease-out;
-      transition-duration: 1s
+      //transition-property: opacity;
+      //transition-timing-function: ease-out;
+      //transition-duration: 1s
+      transition: none;
     }
 
     .debugText {
@@ -1171,7 +1174,7 @@
         'rgb(210, ' + Math.floor(135 - idx * 2) + ', ' + Math.floor(235 - idx * 2) + ')'
       );
       this._canvas = this._playerDiv.querySelector('.canvas');
-      this._ctx = this._canvas.getContext('2d');
+      this._ctx = this._canvas.getContext('2d', { willReadFrequently: true })
       this._ctx.lineCap = 'round';
       this._ctx.imageSmoothingQuality = 'high';
       this._ctx.imageSmoothingEnabled = true;
@@ -1198,7 +1201,7 @@
       this.buttonLayout(config['buttonLayout'] || 'line'); // 'line' 'box' 'samurai' 'six'
       this._inputType = (config[`inputType`] || 'k1'); // 'k1' 'k2' 'k3'
       this._inputDevice = parseInt(config[`inputDevice${this._player}p`] || 0);
-      this.DELAY_FRAMES = Math.max(1, parseInt(config['delayFrames'] || 2));
+      this.DELAY_FRAMES = Math.max(1, parseInt(config['delayFrames'] || 1));
       if (this._combinedKeybitQueue.length !== this.DELAY_FRAMES) {
         this._combinedKeybitQueue = Array(this.DELAY_FRAMES).fill().map((x) => INPUT_NAN);
       }
@@ -1512,21 +1515,34 @@
   let totalFramesInt = 0;
 
   function frameLoop(onFrameUpdate) {
-    let handler = {};
-    let loop = function (time) {
-      let period = time - LOOP_START_TIME;
-      if (16.5 < period) {
-        let newTotalFrames = (time - LOOP_START_TIME) / FRAME_PERIOD;
-        let newTotalFramesInt = newTotalFrames | 0;
-        onFrameUpdate(newTotalFramesInt - totalFramesInt);
-        totalFrames = newTotalFrames;
-        totalFramesInt = newTotalFramesInt;
+    let lastTime = performance.now();
+    function loop(now) {
+      let elapsed = now - lastTime;
+      if (elapsed >= FRAME_PERIOD) {
+        lastTime = now - (elapsed % FRAME_PERIOD); // 誤差調整
+        let frames = Math.round(elapsed / FRAME_PERIOD);
+        onFrameUpdate(frames); // ← ★ 遅れた分まとめて更新
       }
-      handler.id = requestAnimationFrame(loop);
-    };
-    handler.id = requestAnimationFrame(loop);
-    return handler;
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
   }
+  //function frameLoop(onFrameUpdate) {
+  //  let handler = {};
+  //  let loop = function (time) {
+  //    let period = time - LOOP_START_TIME;
+  //    if (16.5 < period) {
+  //      let newTotalFrames = (time - LOOP_START_TIME) / FRAME_PERIOD;
+  //      let newTotalFramesInt = newTotalFrames | 0;
+  //      onFrameUpdate(newTotalFramesInt - totalFramesInt);
+  //      totalFrames = newTotalFrames;
+  //      totalFramesInt = newTotalFramesInt;
+  //    }
+  //    handler.id = requestAnimationFrame(loop);
+  //  };
+  //  handler.id = requestAnimationFrame(loop);
+  //  return handler;
+  //}
 
   pollJSON();
   setInterval(pollJSON, 800);
