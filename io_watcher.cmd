@@ -85,13 +85,9 @@ echo NAME = %NAME%
 
 cd /d %IO_CLIENT_DIR%
 
-:loop
 io_client -a ws://localhost:%PORT% -k -g -n %NAME%
 timeout /T 5
-goto loop
-pause
 
-pause
 exit /b 0
 
 ::-------------------------------
